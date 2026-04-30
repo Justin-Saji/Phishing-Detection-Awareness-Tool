@@ -1,187 +1,237 @@
+# 🔒 Phishing Detection Awareness Tool
 
-#  Phishing Detection Awareness Tool
+## What is Phishing?
+Phishing is a cyber attack where attackers try to trick individuals into revealing sensitive information like passwords, credit card numbers, or personal data. They often do this through deceptive emails, websites, or messages that appear legitimate. Common tactics include creating urgency, promising rewards, or impersonating trusted organizations.
 
-## 📌 Overview
+## Project Purpose
+This tool is designed to educate beginners about phishing by analyzing emails and URLs for common suspicious patterns. It promotes cybersecurity awareness without using advanced techniques like machine learning, focusing instead on simple string matching and logical checks.
 
-The **Phishing Detection Awareness Tool** is a Python-based cybersecurity application designed to help users identify and understand phishing attacks in emails and URLs.
+## ✨ Features
 
-This project focuses on **user awareness and education**, by not only detecting suspicious patterns but also explaining *why* the input may be malicious.
+### Core Features
+- **📧 Email Analysis**: Checks for suspicious keywords such as "urgent", "free", "click now", etc.
+- **🔗 URL Analysis**: Detects insecure protocols (HTTP), IP addresses, @ symbols, and excessive hyphens.
+- **📊 Risk Assessment**: Calculates a risk score (0-100) and assigns a risk level (LOW, MEDIUM, HIGH) based on detected issues.
+- **🎯 Visual Risk Meter**: Displays a progress bar showing the risk percentage.
+- **📚 Educational Explanations**: Provides clear reasons why something is flagged as suspicious.
+- **💾 Report Generation**: Saves analysis results to a text file for reference.
+- **✅ Input Validation (NEW)**: Validates that inputs are proper email addresses or URLs before analysis
 
-It features a **Graphical User Interface (GUI)** for easy interaction and demonstrates real-world phishing detection techniques using rule-based analysis.
+### Interface Options
+- **🖥️ Console Mode**: Original command-line interface for terminal users
+- **🎨 GUI Mode (NEW)**: Modern Tkinter-based graphical interface with:
+  - Dark cybersecurity-themed design
+  - Real-time risk visualization
+  - Color-coded risk levels
+  - Interactive buttons and progress bars
+  - Save reports with custom location
+  - Professional report formatting
+  - Input validation with helpful error messages
 
----
+## 🚀 How to Run the Project
 
-## 🎯 Objectives
-
-* Detect potential phishing attempts in emails and URLs
-* Educate users about common phishing techniques
-* Provide risk analysis with clear explanations
-* Simulate real-world cybersecurity detection mechanisms
-
----
-
-## ⚙️ Features
-
-### 🧪 Input Analysis
-
-* Analyze **email content** for phishing indicators
-* Analyze **URLs** for suspicious patterns
-
-### 🔍 Detection Techniques
-
-* Keyword-based detection (e.g., *urgent, verify, click now*)
-* URL structure analysis (HTTP, IP-based URLs, special characters)
-* Regex-based pattern detection
-* Domain reputation checking using:
-
-  * 🔴 Blacklist (known malicious domains)
-  * 🟢 Whitelist (trusted domains)
-
-### 📊 Risk Assessment
-
-* Generates a **risk score (0–100)**
-* Classifies input as:
-
-  * 🟢 Low Risk
-  * 🟡 Medium Risk
-  * 🔴 High Risk
-
-### 🖥️ GUI Interface
-
-* User-friendly interface built using Tkinter
-* Input box for email/URL
-* Analyze button for instant results
-* Visual risk indicator
-* Explanation panel
-
-### 📈 Additional Features
-
-* Domain reputation display (Trusted / Unknown / Blacklisted)
-* Detailed explanation of detected threats
-* Report generation (stored in output file)
-
----
-
-## 🧠 How It Works
-
-1. User enters email text or URL
-2. System analyzes input using:
-
-   * Keyword detection
-   * Pattern matching
-   * URL structure analysis
-   * Domain reputation check
-3. A **rule-based scoring system** calculates risk
-4. The system displays:
-
-   * Risk level
-   * Risk score
-   * Reasons for detection
-   * Security recommendations
-
----
-
-## 🏗️ Project Structure
-
-```
-phishing_detection_tool/
-│
-├── main.py
-├── gui.py
-│
-├── detector/
-│   ├── email_checker.py
-│   ├── url_checker.py
-│   └── keyword_list.py
-│
-├── utils/
-│   ├── explanation.py
-│   └── score_calculator.py
-│
-├── database/
-│   ├── blacklist.txt
-│   └── whitelist.txt
-│
-├── output/
-│   └── report.txt
-│
-└── README.md
-```
-
----
-
-##  Technologies Used
-
-* Python
-* Tkinter (GUI)
-* Regular Expressions (Regex)
-* File Handling
-
----
-
-##  How to Run the Project
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/your-username/phishing_detection_tool.git
-```
-
-2. Navigate to the project folder:
-
-```bash
-cd phishing_detection_tool
-```
-
-3. Run the application:
-
+### Quick Start (GUI Mode - Recommended)
 ```bash
 python main.py
 ```
+Then select option `[2] GUI Mode` from the menu.
 
----
-
-##  Example Output
-
+### Console Mode (Original)
+```bash
+python main.py
 ```
-Risk Score: 78/100
-Risk Level: HIGH
+Then select option `[1] Console Mode` from the menu.
 
-Reasons:
-- Urgency-based language detected
-- Suspicious URL structure
-- Domain found in blacklist
+### Requirements
+- Python 3.6 or higher
+- No external packages required (uses only standard library)
+  - `tkinter` comes built-in with Python
 
-Recommendation:
-Do not click the link and verify the source.
+📁 Project Structure
+```
+phishing_detection_tool/
+│
+├── main.py                      # Entry point (supports both modes)
+├── gui.py                       # 🆕 GUI interface (Tkinter-based)
+├── README.md
+├── requirements.txt
+├── VALIDATION_DOCUMENTATION.md  # 🆕 Input validation guide
+├── VALIDATION_QUICK_REFERENCE.md # 🆕 Quick validation reference
+│
+├── detector/
+│   ├── __init__.py
+│   ├── email_checker.py         # Email phishing detection logic
+│   ├── url_checker.py           # URL phishing detection logic
+│   ├── keyword_list.py          # Suspicious keywords database
+│   └── validator.py             # 🆕 Input validation module
+│
+├── utils/
+│   ├── __init__.py
+│   ├── explanation.py           # Educational explanations
+│   └── score_calculator.py      # Risk scoring engine
+│
+├── data/
+│   └── sample_inputs.txt        # Test examples
+│
+└── output/
+    └── report.txt               # Generated reports
+```
 
-##  Cybersecurity Concepts Covered
+## 🖥️ GUI Interface Overview
 
-* Phishing attacks and social engineering
-* URL manipulation techniques
-* Domain impersonation
-* Rule-based threat detection
-* Risk scoring systems
+### Main Window Features
+1. **Header Section**: Tool title and description
+2. **Input Selection**: Radio buttons to choose between Email or URL analysis
+3. **Text Input Box**: Paste email content or URL to analyze
+4. **Analyze Button**: Trigger the analysis
+5. **Results Display**:
+   - Risk Level with emoji indicators (✅ Low, ⚠️ Medium, ⚠️ High)
+   - Risk Score (0-100)
+   - Interactive progress bar
+   - Detailed issues and explanations
+6. **Action Buttons**:
+   - 💾 Save Report: Export analysis to file
+   - 🗑️ Clear: Reset the interface
 
-##  Future Enhancements
+### Design Elements
+- **Color Scheme**:
+  - Dark background (#0a0e27) for reduced eye strain
+  - Neon green text (#00ff88) for primary elements
+  - Neon red/orange for warnings and alerts
+  - Blue highlights for secondary information
+  
+- **Visual Feedback**:
+  - Color-coded risk levels
+  - Progress bar visualization
+  - Real-time status updates
+  - Emoji indicators for quick scanning
 
-* Machine Learning-based phishing detection
-* Real-time domain reputation API integration
-* Browser extension version
-* Web-based dashboard (Flask)
-* Bulk email/URL scanning
-* Data visualization and analytics
+## 📊 How It Works
 
-## 🎓 Academic Value
+### Email Analysis Process
+```
+User Input (Email Address)
+         ↓
+✅ Validate Email Format
+         ↓
+Check for Suspicious Keywords
+         ↓
+Calculate Risk Score & Level
+         ↓
+Generate Explanations
+         ↓
+Display Results Visually
+```
 
-This project demonstrates:
+### URL Analysis Process
+```
+User Input (URL)
+         ↓
+✅ Validate URL Format
+         ↓
+Check for:
+  • HTTP (insecure protocol)
+  • IP addresses
+  • @ symbols (domain spoofing)
+  • Excessive hyphens
+         ↓
+Calculate Risk Score & Level
+         ↓
+Generate Explanations
+         ↓
+Display Results Visually
+```
 
-* Practical application of cybersecurity concepts
-* Secure coding practices
-* Modular software design
-* User-focused awareness tools
+## ✅ Input Validation
+
+The tool now includes robust input validation to ensure proper format:
+
+### Email Validation
+- ✅ Must contain `@` symbol
+- ✅ Must follow `user@domain.extension` format
+- ✅ Local part max 64 characters
+- ✅ Domain part max 255 characters
+- ✅ No consecutive dots
+
+**Valid emails:**
+- `user@example.com`
+- `john.smith@company.co.uk`
+- `support+tag@domain.org`
+
+**Invalid emails:**
+- `notanemail` (missing @)
+- `user@` (incomplete)
+- `@example.com` (no local part)
+
+### URL Validation
+- ✅ Must have valid protocol (http://, https://, ftp://, ftps://)
+- ✅ Must have domain name
+- ✅ Auto-completes with `https://` if missing
+- ✅ No invalid characters
+
+**Valid URLs:**
+- `https://www.example.com`
+- `example.com` (auto-converts to https://example.com)
+- `http://website.org`
+
+**Invalid URLs:**
+- `not a website` (invalid format)
+- `://example.com` (missing protocol)
+
+**For detailed validation information, see [VALIDATION_DOCUMENTATION.md](VALIDATION_DOCUMENTATION.md) and [VALIDATION_QUICK_REFERENCE.md](VALIDATION_QUICK_REFERENCE.md)**
+
+## 🧪 Sample Inputs
+Check the `data/sample_inputs.txt` file for examples of suspicious and safe emails/URLs to test the tool.
+
+### Test Cases
+**Suspicious Email Examples:**
+- Emails with words like "urgent", "verify", "reset password"
+- Messages claiming account suspension
+- Offers of free prizes or congratulations
+
+**Suspicious URL Examples:**
+- `http://bank-login-verify.com` (HTTP instead of HTTPS)
+- `http://192.168.1.1/login` (IP address)
+- `https://paypa1.com@google.com` (@ symbol)
+
+## ⚠️ Limitations
+- This tool uses basic pattern matching and may not detect sophisticated phishing attempts.
+- It does not scan for malware or analyze attachments.
+- False positives or negatives can occur; always use additional verification methods.
+- No network connectivity required, but real-world checks should include domain reputation.
+
+## 💡 Safety Tips
+- ✅ Never click links from unsolicited emails
+- ✅ Verify sender identity through official channels
+- ✅ Check for HTTPS and security indicators in URLs
+- ✅ Be suspicious of urgent requests for sensitive information
+- ✅ Hover over links to see the actual URL before clicking
+- ✅ Use two-factor authentication when available
+
+## 🔮 Future Enhancements
+- Integrate with online databases for domain reputation checking
+- Add support for analyzing email headers
+- Implement machine learning models for advanced detection
+- Support for additional languages
+- Mobile app version
+- Integration with email clients
+
+## 📦 Requirements
+No external libraries are needed. The project uses only Python's standard library:
+- `tkinter` (for GUI)
+- `re` (for regex patterns)
+- `datetime` (for timestamps)
+- Standard file I/O
+
+## 🤝 Contributing
+Feel free to suggest improvements or add features while keeping the code:
+- Simple and educational
+- Well-documented
+- Beginner-friendly
+- Focused on phishing awareness
 
 ## 📄 License
+This is an educational tool for learning about cybersecurity and phishing awareness.
 
-This project is developed for educational purposes.
-********
+## 🙏 Acknowledgments
+Built with the goal of raising cybersecurity awareness among beginners. Stay safe online!

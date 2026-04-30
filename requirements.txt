@@ -1,0 +1,8 @@
+# Phishing Detection Awareness Tool Dependencies
+
+# Chart Visualization (Optional but recommended)
+matplotlib>=3.5.0
+
+# Note: Core functionality uses only Python standard library.
+# matplotlib is optional and only required for chart visualizations in GUI mode.
+# Console mode works with ASCII charts without any dependencies.
